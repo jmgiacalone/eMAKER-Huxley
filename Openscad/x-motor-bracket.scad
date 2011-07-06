@@ -1,19 +1,32 @@
 include<configuration.scad>;
-bushing_height=8;
-socket_width=8;
-socket_depth=4;
-socket_clearance=0.2;
-bushing_width=12;
-bushing_rodsize=6.3;
-bearing_length=4;
-body_chamfers=1;
-rod_clearance=1;//dia
-partthick=12;
+use<bushing.scad>
+//bushing_height=8;
+//socket_width=8;
+//socket_depth=4;
+//socket_clearance=0.2;
+//bushing_width=12;
+//bushing_rodsize=6.3;
+//bearing_length=4;
+//body_chamfers=1;
+//rod_clearance=1;//dia
+//partthick=12;
 
 //body
-module x_idler_body()
+module x_motor_body()
 {
-	translate([0,0,0]) cube([37.5,62,partthick], center=true);
+	difference(){
+		union(){
+		translate([0,0,0]) rotate([0,0,90]) import_stl("../stl/x-motor-bracket_.stl");
+		translate([-2.5,48,20.15]) rotate([90,0,90])
+			bushing(true,10);
+		translate([-53.5,48,20.15]) rotate([90,0,90])
+			bushing(true,10);
+		}
+		translate([0,48,13.15]) rotate([90,0,90])
+			cylinder(h=10,r=2.7/2, $fn=8);
+		translate([-46.5,48,13.15]) rotate([90,0,-90])
+			cylinder(h=10,r=2.7/2,$fn=8);
+	}
 }
 //bushing holder socket
 module bushing_socket()
@@ -43,5 +56,4 @@ module bushing_socket()
 	}
 }
 
-//bushing_socket();
-x_idler_body();
+x_motor_body();

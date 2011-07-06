@@ -1,12 +1,13 @@
 // eMAKEr Huxley
 // Configuration file
-// GNU GPL v2
+// GNU GPL v3
 // Jean-Marc Giacalone
 // info@emakershop.com
 // www.emakershop.com
 // http://www.reprap.org/wiki/EMAKER_Huxley
-// http://github.com/prusajr/eMAKERHuxley
+// http://github.com/jmgiacalone/eMAKERHuxley
 
+use <library.scad>
 
 //Round corner diameter
 round_corner_diameter = 8;
@@ -23,11 +24,17 @@ echo(thin_wall);
 
 // MINI-HUXLEY VERSION (TODO, just place holder)
 // include <configuration-huxley.scad>
+m8_diameter=8.3;
+m5_diameter=5.3;
+m4_diameter=4.3;
+m3_diameter=3.3;
 m3_dia_clr=3.5;
+m3_nut = 2.8;
+m3_af = 5.8;
 m6_diameter = 6;
 m6_nut = 11.5;
 bushing_diameter = 8;
-motor_shaft=5;
+motor_shaft=5.3;
 bushing_rodsize = 6;
 bushing_outerDiameter = 12;
 bushing_lenght = 8;
