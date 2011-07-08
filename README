@@ -9,8 +9,6 @@ from design faults. The user accepts the risk that some issues may arise
 from printing and assembling the files contained within this project. Users
 are however encouraged to publish errors/improvements back to the originator.
 
-2011 03 01
-Current status: working prototype. this commit includes modified
-components (not yet printed) for beta version.
-
+./Openscad/huxley_sheets.scad is the master. Output from this file is used
+in production.
 
