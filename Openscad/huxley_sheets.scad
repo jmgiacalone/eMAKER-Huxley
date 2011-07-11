@@ -71,16 +71,14 @@ module upplate4(){
 	}
 }
 module upplate5(){
-	translate([90,0,0]) rotate([0,0,90]) union()
+	translate([90,-15,0]) rotate([0,0,90]) union()
 	{
-		//translate([20,-5,0]) rotate([0,0,0]) import_stl("../stl/z-motor-bracket.stl");
-		//translate([20,50,0]) rotate([0,0,0]) import_stl("../stl/z-motor-bracket.stl");
 
-		translate([30,40,0]) rotate([0,0,120]) import_stl("../stl/frame-vertex.stl");
-		translate([36,76,0]) rotate([0,0,105]) import_stl("../stl/frame-vertex.stl");
+		translate([62,32,0]) rotate([0,0,40]) import_stl("../stl/frame-vertex.stl");
+		translate([37,64,0]) rotate([0,0,-80]) import_stl("../stl/frame-vertex.stl");
 
-		translate([28,0,0]) rotate([0,0,0]) import_stl("../stl/y-idler-bracket.stl");
-		translate([34,77,0]) rotate([0,0,-45]) import_stl("../stl/y-motor-bracket.stl");
+//		translate([28,0,0]) rotate([0,0,0]) import_stl("../stl/y-idler-bracket.stl");
+//		translate([34,77,0]) rotate([0,0,-45]) import_stl("../stl/y-motor-bracket.stl");
 		translate([90,50,0]) mirror([0,1,0]) rotate([0,0,140]) import_stl("../stl/frame-vertex-foot.stl");
 		translate([73,15,0]) rotate([0,0,-20]) import_stl("../stl/frame-vertex-foot.stl");
 	}
@@ -100,7 +98,7 @@ translate([30,75,0])
 	}
 }
 
-platenum=4;
+platenum=99;
 %cube(size=[130,130,0.01],center=true);
 if(platenum==1)
 	translate([-43,-49,0]) upplate1();
@@ -124,4 +122,5 @@ if(platenum==99){
 	translate([244,-49,0]) upplate3();
 	translate([384,-49,0]) upplate4();
 	translate([524,-49,0]) upplate5();
+	translate([664,-49,0]) upplate6();
 }
