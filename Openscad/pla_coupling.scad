@@ -11,7 +11,7 @@ studding_dia = 5.0;
 shaft_dia = 8.0;
 
 module coupling(c){
-    union(){
+    translate([0,0,4]) union(){
         difference(){
             cube(size = [26,25,8], center = true);
 

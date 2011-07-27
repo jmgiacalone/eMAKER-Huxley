@@ -49,12 +49,17 @@ module upplate3(){
 		translate([58,70,0]) rotate([0,0,-90]) import_stl("../stl/nozzle-mounting.stl");
 		translate([27,20,16]) rotate([180,0,0]) small_gear();
 		translate([-10,70,0]) rotate([0,0,0]) large_gear();
-		translate([60,20,0]) rotate([0,0,0]) import_stl("../stl/M4-Block.stl");
-		translate([80,30,0]) rotate([0,0,90]) import_stl("../stl/idler-bracket.stl");
+		translate([60,20,0]) rotate([0,0,0])
+			union(){
+				import_stl("../stl/M6-Block.stl");
+				translate([-5,-5,5]) cube([10,10,0.3]);
+				translate([22.5,-23.6,0]) cube([12,5,12]);
+			}
+		translate([80,30,6]) rotate([90,0,90]) import_stl("../stl/idler_.stl");
 	}
 }
 module upplate4(){
-	translate([0,0,0]) rotate([0,0,0]) union()
+	translate([0,90,0]) rotate([0,0,-90]) union()
 	{
 		translate([19,83,0]) rotate([0,0,0]) import_stl("../stl/bearing-holder.stl");
 		translate([39,83,0]) rotate([0,0,0]) import_stl("../stl/bearing-holder.stl");
@@ -98,7 +103,7 @@ translate([30,75,0])
 	}
 }
 
-platenum=99;
+platenum=3;
 %cube(size=[130,130,0.01],center=true);
 if(platenum==1)
 	translate([-43,-49,0]) upplate1();
