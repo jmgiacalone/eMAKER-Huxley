@@ -1,7 +1,8 @@
 include <parametric_involute_gear_v5.0.scad>
 
-//small_gear();
-large_gear();
+translate([0,0,16]) rotate([0,180,0])
+	small_gear();
+//large_gear();
 
 module small_gear(){
 translate ([0,0,0]) difference(){
@@ -12,7 +13,7 @@ translate ([0,0,0]) difference(){
 	clearance = 0.2,
 	gear_thickness=7,
 	rim_thickness=7,
-	rim_width=5,
+	rim_width=5.3,
 	hub_thickness=16,
 	hub_diameter=18,
 	bore_diameter=5,

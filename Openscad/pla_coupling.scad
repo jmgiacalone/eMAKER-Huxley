@@ -1,8 +1,10 @@
+include <configuration.scad>
+
 holeX = 6.5;
 holeY = 6.5;
 
 holeR = 3.4 / 2;
-nutR = 5.8/sqrt(3);
+nutR = 5.8/sqrt(3)+0.2;
 //nutR=3.25;
 nutH = 3;
 corner_cut = 24;
@@ -31,10 +33,15 @@ module coupling(c){
             translate([-0.5, 0, 4.5]) rotate([0,90,0]) cylinder(h = 16, r=shaft_dia / 2,    $fn=16);
 
             //screw holes
-            translate([ holeX,  holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
-            translate([ holeX, -holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
-            translate([-holeX,  holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
-            translate([-holeX, -holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
+            //translate([ holeX,  holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
+            //translate([ holeX, -holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
+            //translate([-holeX,  holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
+            //translate([-holeX, -holeY, -10]) cylinder(h = 20, r=holeR, $fn=16);
+            translate([ holeX,  holeY, -10]) polyhole(h = 20, d=holeR*2);
+            translate([ holeX,  -holeY, -10]) polyhole(h = 20, d=holeR*2);
+            translate([ -holeX,  holeY, -10]) polyhole(h = 20, d=holeR*2);
+            translate([ -holeX,  -holeY, -10]) polyhole(h = 20, d=holeR*2);
+
 
             //corners
             rotate([0,0,30])   translate([corner_cut, 0, 0]) cube(size = [20,40,20], center = true);

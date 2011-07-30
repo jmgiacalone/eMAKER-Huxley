@@ -47,7 +47,7 @@ module upplate3(){
 	translate([0,0,0]) rotate([0,0,0]) union()
 	{
 		translate([58,70,0]) rotate([0,0,-90]) import_stl("../stl/nozzle-mounting.stl");
-		translate([27,20,16]) rotate([180,0,0]) small_gear();
+//		translate([27,20,16]) rotate([180,0,0]) small_gear();
 		translate([-10,70,0]) rotate([0,0,0]) large_gear();
 		translate([60,20,0]) rotate([0,0,0])
 			union(){

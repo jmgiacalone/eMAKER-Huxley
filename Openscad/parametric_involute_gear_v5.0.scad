@@ -372,7 +372,7 @@ module gear (
 		translate ([0,0,-1])
 		cylinder (
 			r=bore_diameter/2,
-			h=2+max(rim_thickness,hub_thickness,gear_thickness));
+			h=2+max(rim_thickness,hub_thickness,gear_thickness),$fn=32);
 		if (circles>0)
 		{
 			for(i=[0:circles-1])	
