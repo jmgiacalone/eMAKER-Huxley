@@ -6,6 +6,7 @@ use <x-idler-bracket.scad>
 use <x-motor-bracket.scad>
 use <pla_coupling.scad>
 use <y-brackets-split.scad>
+use <z-endstop-holder.scad>
 
 
 module upplate1(){
@@ -47,13 +48,14 @@ module upplate3(){
 	translate([0,0,0]) rotate([0,0,0]) union()
 	{
 		translate([58,70,0]) rotate([0,0,-90]) import_stl("../stl/nozzle-mounting.stl");
-//		translate([27,20,16]) rotate([180,0,0]) small_gear();
+		translate([27,20,16]) rotate([180,0,0]) small_gear();
 		translate([-10,70,0]) rotate([0,0,0]) large_gear();
 		translate([60,20,0]) rotate([0,0,0])
 			union(){
 				import_stl("../stl/M6-Block.stl");
 				translate([-5,-5,5]) cube([10,10,0.3]);
 				translate([22.5,-23.6,0]) cube([12,5,12]);
+				#translate([13.25,-15,11.3]) cylinder(h=0.3, r=1.8, $fn=20);
 			}
 		translate([80,30,6]) rotate([90,0,90]) import_stl("../stl/idler_.stl");
 	}
@@ -86,6 +88,8 @@ module upplate5(){
 //		translate([34,77,0]) rotate([0,0,-45]) import_stl("../stl/y-motor-bracket.stl");
 		translate([90,50,0]) mirror([0,1,0]) rotate([0,0,140]) import_stl("../stl/frame-vertex-foot.stl");
 		translate([73,15,0]) rotate([0,0,-20]) import_stl("../stl/frame-vertex-foot.stl");
+		translate([40,24,0]) rotate([0,0,-30]) endstop();
+		translate([100,72,0]) rotate([0,0,90]) endstop();
 	}
 }
 module upplate6(){
@@ -103,7 +107,7 @@ translate([30,75,0])
 	}
 }
 
-platenum=3;
+platenum=5;
 %cube(size=[130,130,0.01],center=true);
 if(platenum==1)
 	translate([-43,-49,0]) upplate1();
